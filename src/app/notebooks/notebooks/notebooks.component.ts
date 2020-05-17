@@ -11,18 +11,18 @@ export class NotebooksComponent implements OnInit {
   constructor(private notebookService : NotebookService) { }
 
   ngOnInit(): void {
-    this.getNotebooks();
+    //this.getNotebooks();
   }
 
-  getNotebooks(){
-    this.notebookService.getNotebooks()
-      .subscribe(data => {
-        console.log(data.body);
-        this.notebooks = data.body;
-      },
-      err => {
-        console.log(err);
-      })
-  }
+  // getNotebooks(){
+  //   this.notebookService.getNotebooks()
+  //     .subscribe(data => {
+  //       console.log(data.body);
+  //       this.notebooks = data.body;
+  //     },
+  //     err => {
+  //       console.log(err);
+  //     })
+  // }
 
 }

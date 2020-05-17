@@ -1,1 +1,8 @@
-<p>notebook-editor works!</p>
+<h1>{{current_mode}}</h1>
+<label for="title">Title</label>
+<input type="text" [(ngModel)]="title" placeholder="Title"> <br>
+
+<label for="description">Description</label>
+<textarea [(ngModel)]="description" cols="30" rows="10"></textarea> <br>
+
+<button (click)="onClick()">{{button_name}}</button>

@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor="let notebook of notebooks">
+        {{notebook.title}} - {{notebook.description}}
+        <a routerLink="/notebook/edit/{{notebook.id}}">Edit</a>
+        <a (click)="deleteNotebook(notebook)">Delete</a>
+    </li>
+</ul>
+
+<a routerLink="/notebook/create">Create notebook</a>
+
