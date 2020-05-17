@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt';
 import { NotebooksComponent } from './notebooks/notebooks/notebooks.component';
 import { NotebookEditorComponent } from './notebooks/notebook-editor/notebook-editor.component';
+import { NotebookListComponent } from './notebooks/notebook-list/notebook-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NotebookEditorComponent } from './notebooks/notebook-editor/notebook-ed
     LoginComponent,
     RegisterComponent,
     NotebooksComponent,
-    NotebookEditorComponent
+    NotebookEditorComponent,
+    NotebookListComponent
   ],
   imports: [
     BrowserModule,
