@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {NotebookServiceService} from '../notebook-service.service';
+import {FlashmessageService} from '../../flashmessage.service';
 
 @Component({
   selector: 'app-notebook-editor',
@@ -17,7 +18,10 @@ export class NotebookEditorComponent implements OnInit {
 
   button_name : string = 'Create';
 
-  constructor(private route: ActivatedRoute, private notebookService : NotebookServiceService) { }
+  constructor(private route: ActivatedRoute, 
+    private notebookService : NotebookServiceService,
+    private messageService : FlashmessageService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.mode = this.route.snapshot.url[0].path; // get mode from path
@@ -47,7 +51,10 @@ export class NotebookEditorComponent implements OnInit {
     this.notebookService.createNotebook(body)
       .subscribe(data => {
         if(data.body.status == 'Ok')
-          alert('Tao moi thanh cong');
+        {
+          this.messageService.setMessage('Tao moi thanh cong');
+          this.router.navigate(['/notebook/list']);
+        }
       },
       err => {
         alert('Co loi xay ra oi');
@@ -65,7 +72,7 @@ export class NotebookEditorComponent implements OnInit {
     this.notebookService.updateNotebook(body)
       .subscribe(data => {
         if(data.body.status == 'Ok')
-          alert('Chinh sua thanh cong');
+          this.router.navigate(['/notebook/list']);
       },
       err => {
         alert('Co loi xay ra oi');

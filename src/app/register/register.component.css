@@ -1,0 +1,46 @@
+.login-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.login-form{
+    width: 50%;
+}
+
+.form-title{
+    text-align: center;
+}
+
+.input-block, .input-block label{
+    margin-bottom: 15px;
+}
+
+.input-block input{
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.login-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-form button:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width : 500px){
+    .login-form{
+        width: 90%;
+    }
+}

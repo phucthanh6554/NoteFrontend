@@ -1,4 +1,4 @@
-#notebook-container{
+#note-container{
     display: grid;
     grid-template-columns: 20% 20% 20% 20%;
     justify-content: center;
@@ -6,44 +6,39 @@
     row-gap: 20px;
 }
 
-.notebook{
+.note{
     padding: 10px;
     display: grid;
     grid-template-columns: auto auto;
     border: 1px solid black;
 }
 
-.notebook .title,.notebook .description, .notebook .note-count, .divisor{
+.note .title,.note .description, .note .note-count, .divisor{
     grid-column: 1 /span 2;
 }
 
-.notebook .title{
+.note .title{
     margin-bottom: 10px;
 }
 
-.notebook .title a{
-    text-decoration: none;
-    color: black;
-}
-
-.notebook .action{
+.note .action{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
 
-.notebook .action a{
+.note .action a{
     text-decoration: none;
     color: black;
     margin-left: 10px;
 }
 
-.notebook .note-count{
+.note .note-count{
     display: flex;
     justify-content: flex-end;
 }
 
-.notebook .divisor{
+.note .divisor{
     margin-bottom: 10px;
 }
 
@@ -66,19 +61,19 @@
 }
 
 @media screen and (max-width: 800px){
-    #notebook-container{
+    #note-container{
         grid-template-columns: 30% 30% 30% ;
     }
 }
 
 @media screen and (max-width: 500px){
-    #notebook-container{
+    #note-container{
         grid-template-columns: 40% 40%;
     }
 }
 
 @media screen and (max-width: 375px){
-    #notebook-container{
+    #note-container{
         grid-template-columns: 90%;
     }
 }

@@ -12,6 +12,11 @@ import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt';
 import { NotebooksComponent } from './notebooks/notebooks/notebooks.component';
 import { NotebookEditorComponent } from './notebooks/notebook-editor/notebook-editor.component';
 import { NotebookListComponent } from './notebooks/notebook-list/notebook-list.component';
+import { NotesComponent } from './notes/notes/notes.component';
+import { NoteEditorComponent } from './notes/note-editor/note-editor.component';
+import { NoteListComponent } from './notes/note-list/note-list.component';
+import { FlashmessageComponent } from './flashmessage/flashmessage.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { NotebookListComponent } from './notebooks/notebook-list/notebook-list.c
     RegisterComponent,
     NotebooksComponent,
     NotebookEditorComponent,
-    NotebookListComponent
+    NotebookListComponent,
+    NotesComponent,
+    NoteEditorComponent,
+    NoteListComponent,
+    FlashmessageComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

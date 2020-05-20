@@ -1,10 +1,41 @@
-<ul>
+<div class="create-button-block">
+    <h1>Notebooks</h1>
+    <a routerLink="/notebook/create" class="create-button">Create</a>
+</div>
+
+<div id="notebook-container">
+    <div class="notebook" *ngFor="let notebook of notebooks">
+        <div class="notebook-time"><i>{{notebook.created_at | date:"short"}}</i></div>
+        <div class="action">
+            <a routerLink="/notebook/edit/{{notebook.id}}">Edit</a>
+            <a (click)="deleteNotebook(notebook)">Delete</a>
+        </div>
+
+        <div class="divisor"><hr></div>
+
+        <div class="title">
+            <a routerLink="/note/list/{{notebook.id}}"><h3>{{notebook.title}}</h3></a>
+        </div>
+
+        <div class="description">
+            <p>{{notebook.description}} </p>
+        </div>
+
+        <div class="note-count">
+            <i>{{notebook.notes_count}}</i>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <ul>
     <li *ngFor="let notebook of notebooks">
-        {{notebook.title}} - {{notebook.description}}
+        <a routerLink="/note/list/{{notebook.id}}">{{notebook.title}}</a> - {{notebook.description}}
         <a routerLink="/notebook/edit/{{notebook.id}}">Edit</a>
         <a (click)="deleteNotebook(notebook)">Delete</a>
     </li>
 </ul>
 
-<a routerLink="/notebook/create">Create notebook</a>
+<a routerLink="/notebook/create">Create notebook</a> -->
 

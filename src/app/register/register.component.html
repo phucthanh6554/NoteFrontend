@@ -1,4 +1,28 @@
-<h2>Register Form</h2>
+<div class="login-container">
+    <div class="login-form">
+        <h2 class="form-title">Register</h2>
+
+        <div class="input-block">
+            <label for="name">Name</label>
+            <input type="name" [(ngModel)]="name" placeholder="Name">
+        </div>
+
+        <div class="input-block">
+            <label for="email">Email</label>
+            <input type="email" [(ngModel)]="email" placeholder="Email">
+        </div>
+
+        <div class="input-block">
+            <label for="password">Password</label>
+            <input type="password" [(ngModel)]="password" placeholder="Password">
+        </div>
+
+        <button (click)="register()">Register</button>
+    </div>
+</div>
+
+
+<!-- <h2>Register Form</h2>
 <label for="name">Name</label>
 <input type="text" [(ngModel)]="name" placeholder="Name"> <br>
 
@@ -8,4 +32,4 @@
 <label for="password">Password</label>
 <input type="password" [(ngModel)]="password"> <br>
 
-<button (click)="register()">Register</button>
+<button (click)="register()">Register</button> -->

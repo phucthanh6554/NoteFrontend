@@ -1,5 +1,5 @@
 <div class="editor-header">
-    <h1>{{current_mode}}</h1>
+    <h1>Note</h1>
     <button (click)="onClick()">{{button_name}}</button>
 </div>
 
@@ -11,17 +11,16 @@
         </div>
 
         <div class="input-block">
-            <label for="description">Description</label>
-            <textarea [(ngModel)]="description" cols="30" rows="10"></textarea>
+            <label for="content">Content</label>
+            <textarea [(ngModel)]="content" cols="30" rows="10" placeholder="Content"></textarea>
         </div>
     </div>
 </div>
 
-<!-- <h1>{{current_mode}}</h1>
-<label for="title">Title</label>
+<!-- <label for="title">Title</label>
 <input type="text" [(ngModel)]="title" placeholder="Title"> <br>
 
-<label for="description">Description</label>
-<textarea [(ngModel)]="description" cols="30" rows="10"></textarea> <br>
+<label for="content">content</label>
+<textarea [(ngModel)]="content" placeholder="Content" cols="30" rows="10"></textarea>
 
 <button (click)="onClick()">{{button_name}}</button> -->

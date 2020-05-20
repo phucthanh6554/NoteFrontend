@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../user';
+import {Router} from '@angular/router';
 import {UserService} from '../user.service';
+import {LoadingService} from '../loading.service';
 
 @Component({
   selector: 'app-login',
@@ -12,21 +13,26 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private userservice : UserService) { }
+  constructor(private userservice : UserService, 
+    private loadService : LoadingService,
+    private router : Router) { }
 
   ngOnInit(): void {
   }
 
   login(): void{
-    console.log(this.email, this.password);
+    this.loadService.setLoad();
     this.userservice.login(this.email, this.password)
       .subscribe(data => {
         // Successfully login
         localStorage.setItem('JWT_token', data.body.token);
-        alert('Dang nhap thanh cong');
+        this.router.navigate(['/notebook/list']);
       }, err => {
         if(err.status == 403)
+        {
+          this.loadService.setLoad();
           alert('Loi dang nhap');
+        }
       })
   }
 

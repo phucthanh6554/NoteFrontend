@@ -1,4 +1,22 @@
-<h2>Login Form</h2>
+<div class="login-container">
+    <div class="login-form">
+        <h2 class="form-title">Login</h2>
+
+        <div class="input-block">
+            <label for="email">Email</label>
+            <input type="email" [(ngModel)]="email" placeholder="Email">
+        </div>
+
+        <div class="input-block">
+            <label for="password">Password</label>
+            <input type="password" [(ngModel)]="password" placeholder="Password">
+        </div>
+
+        <button (click)="login()">Login</button>
+    </div>
+</div>
+
+<!-- <h2>Login Form</h2>
 <label for="email">Email</label>
 <input type="email" [(ngModel)]="email" placeholder="Email"> <br>
 
@@ -6,5 +24,7 @@
 <input type="password" [(ngModel)]="password"> <br>
 
 <button (click)="login()">Login</button>
+
+<app-loading></app-loading> -->
 
 
