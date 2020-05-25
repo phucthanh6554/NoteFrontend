@@ -17,6 +17,7 @@ import { NoteEditorComponent } from './notes/note-editor/note-editor.component';
 import { NoteListComponent } from './notes/note-list/note-list.component';
 import { FlashmessageComponent } from './flashmessage/flashmessage.component';
 import { LoadingComponent } from './loading/loading.component';
+import { NavibarComponent } from './navibar/navibar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoadingComponent } from './loading/loading.component';
     NoteEditorComponent,
     NoteListComponent,
     FlashmessageComponent,
-    LoadingComponent
+    LoadingComponent,
+    NavibarComponent
   ],
   imports: [
     BrowserModule,

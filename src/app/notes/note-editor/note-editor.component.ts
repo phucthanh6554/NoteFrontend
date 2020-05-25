@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {NotesService} from '../notes.service';
+import {LoadingService} from '../../loading.service';
+//import { LoadingComponent } from 'src/app/loading/loading.component';
 
 @Component({
   selector: 'app-note-editor',
@@ -20,7 +22,8 @@ export class NoteEditorComponent implements OnInit {
 
   constructor(private noteService : NotesService,
     private router : Router,
-    private route : ActivatedRoute) { }
+    private route : ActivatedRoute,
+    private loadingservice : LoadingService) { }
 
   ngOnInit(): void {
     this.mode = this.route.snapshot.url[0].path; // get mode from path
@@ -37,6 +40,7 @@ export class NoteEditorComponent implements OnInit {
   }
 
   onClick(): void{
+    this.loadingservice.setLoad();
     if(this.mode == 'create')
       this.createNote();
     else
@@ -57,10 +61,13 @@ export class NoteEditorComponent implements OnInit {
           this.mode = 'edit';
           this.button_name = 'Edit';
           this.id = data.body.note.id;
+          alert('Them moi thanh cong');
+          this.loadingservice.stopLoad();
         }
       }, err => {
         alert('Da xay ra loi');
         console.log(err);
+        this.loadingservice.stopLoad();
       })
   }
 
@@ -74,10 +81,14 @@ export class NoteEditorComponent implements OnInit {
     this.noteService.updateNote(body)
       .subscribe(data => {
         if(data.body.status == 'Ok')
+        {
           alert('Luu note thanh cong');
+          this.loadingservice.stopLoad();
+        }
       }, err => {
         alert('Da xay ra loi');
         console.log(err);
+        this.loadingservice.stopLoad();
       })
   }
 

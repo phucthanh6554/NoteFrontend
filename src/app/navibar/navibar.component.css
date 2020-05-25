@@ -1,0 +1,12 @@
+.navibar{
+    width: 100%;
+    display: flex;
+}
+
+.navibar .navi-button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+}

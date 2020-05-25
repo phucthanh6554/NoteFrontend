@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       }, err => {
         if(err.status == 403)
         {
-          this.loadService.setLoad();
+          this.loadService.stopLoad();
           alert('Loi dang nhap');
         }
       })

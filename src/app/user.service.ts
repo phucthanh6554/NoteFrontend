@@ -23,4 +23,9 @@ export class UserService {
 
     return this.http.post<any>(url, body, {observe: 'response'});
   }
+
+  logout() : void
+  {
+    localStorage.removeItem('JWT_token');
+  }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NotebookServiceService} from '../notebook-service.service';
-import {FlashmessageService} from '../../flashmessage.service';
+//import {FlashmessageService} from '../../flashmessage.service';
+import {LoadingService} from '../../loading.service';
 
 @Component({
   selector: 'app-notebook-editor',
@@ -20,7 +21,8 @@ export class NotebookEditorComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
     private notebookService : NotebookServiceService,
-    private messageService : FlashmessageService,
+    //private messageService : FlashmessageService,
+    private loadingservice : LoadingService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -37,6 +39,7 @@ export class NotebookEditorComponent implements OnInit {
   }
 
   onClick(): void{
+    this.loadingservice.setLoad();
     if(this.mode == 'create')
       this.createNotebook();
     else if(this.mode == 'edit')
@@ -52,12 +55,14 @@ export class NotebookEditorComponent implements OnInit {
       .subscribe(data => {
         if(data.body.status == 'Ok')
         {
-          this.messageService.setMessage('Tao moi thanh cong');
+         // this.messageService.setMessage('Tao moi thanh cong');
+          this.loadingservice.stopLoad();
           this.router.navigate(['/notebook/list']);
         }
       },
       err => {
         alert('Co loi xay ra oi');
+        this.loadingservice.stopLoad();
       })
   }
 
@@ -72,10 +77,14 @@ export class NotebookEditorComponent implements OnInit {
     this.notebookService.updateNotebook(body)
       .subscribe(data => {
         if(data.body.status == 'Ok')
+        { 
           this.router.navigate(['/notebook/list']);
+          this.loadingservice.stopLoad();
+        }
       },
       err => {
         alert('Co loi xay ra oi');
+        this.loadingservice.stopLoad();
       })
   }
 

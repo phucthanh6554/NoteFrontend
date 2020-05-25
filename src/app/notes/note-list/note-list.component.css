@@ -48,12 +48,18 @@
     display: flex;
 }
 
-.create-button-block .create-button{
+.create-button-block .create-button, .logout-button{
     text-decoration: none;
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
     margin-left: auto;
+}
+
+.logout-button{
+    margin-left: 10px;
+    background-color:orangered;
+    cursor: pointer;
 }
 
 .create-button-block .create-button:hover{

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {NotesService} from '../notes.service';
+import {LoadingService} from '../../loading.service';
+import {UserService} from '../../user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-note-list',
@@ -11,12 +14,18 @@ export class NoteListComponent implements OnInit {
   notebook_id : number;
   notes ;
   isEmpty : boolean
-  constructor(private route : ActivatedRoute, private noteservice : NotesService) { }
+  constructor(private route : ActivatedRoute, 
+    private noteservice : NotesService,
+    private loadingservice : LoadingService,
+    private userservice : UserService,
+    private router : Router) { }
 
   ngOnInit(): void {
     this.notebook_id = +this.route.snapshot.paramMap.get('notebook_id');
 
     this.getNotes();
+
+    this.loadingservice.setLoad(); // setLoader
   }
 
   getNotes()
@@ -26,9 +35,13 @@ export class NoteListComponent implements OnInit {
         this.notes = data.body;
         console.log(data.body.length);
         this.isEmpty = data.body.length == 0 ? true : false;
+
+        this.loadingservice.stopLoad();
       },
       err => {
         console.log(err);
+        alert('Co loi xay ra');
+        this.loadingservice.stopLoad();
       })
   }
 
@@ -44,6 +57,11 @@ export class NoteListComponent implements OnInit {
           alert('Xoa thanh cong');
         }
       })
+  }
+
+  logout(): void{
+    this.userservice.logout();
+    this.router.navigate(['/login']);
   }
 
 }
